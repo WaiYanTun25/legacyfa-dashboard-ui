@@ -8,6 +8,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx",".css"],
+    alias: {
+      "@src": "/src",
+      "@pages": "/src/pages",
+    },
+  },
   build: {
     outDir: "build",
   },

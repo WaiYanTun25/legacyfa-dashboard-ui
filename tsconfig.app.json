@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@src/*": ["./*"],
+      "@pages/*": ["./pages/*"]
+    },
     "target": "es2023",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
