@@ -12,6 +12,7 @@ export default defineConfig({
       "@routes": "/src/routes",
       "@components": "/src/components",
       "@assets": "/src/assets",
+      "@schemas": "/src/schemas",
     },
   },
   build: {
