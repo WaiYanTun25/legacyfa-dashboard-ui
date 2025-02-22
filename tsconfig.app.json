@@ -6,7 +6,8 @@
       "@pages/*": ["./pages/*"],
       "@routes/*": ["./routes/*"],
       "@components/*": ["./components/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@schemas/*": ["./schemas/*"],
     },
     "target": "es2023",
     "lib": ["dom", "dom.iterable", "esnext"],
