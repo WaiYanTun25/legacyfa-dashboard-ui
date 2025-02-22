@@ -1,20 +1,8 @@
 import { assets } from "@assets/index";
-import { Button, Input } from "@src/components/ui";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { loginShcema } from "@schemas/index";
 import { LoginFormDataType } from "@pages/public/login/Login.type";
+import { LoginForm } from "@pages/public/login/LoginForm";
 
 export const Login = () => {
-  const {
-    setValue,
-    handleSubmit,
-    trigger,
-    formState: { errors, isSubmitting },
-  } = useForm<LoginFormDataType>({
-    resolver: yupResolver(loginShcema),
-  });
-
   const onSubmit = (data: LoginFormDataType) => {
     console.error(data);
   };
@@ -27,73 +15,13 @@ export const Login = () => {
           style={{ backgroundImage: `url(${assets.images.loginImage})` }}
         ></div>
         <div className="relative z-10 flex items-center justify-center h-full w-full">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col w-full bg-white bg-opacity-75 p-3 rounded-lg gap-3"
-          >
-            <h1 className="md:text-sm text-xl font-bold text-primary">
-              Welcome Back 👋
-            </h1>
-            <span className="mb-4 text-sm text-gray-600">
-              Enter your Credentials to access your account.
-            </span>
-            <Input
-              type="email"
-              label="Email"
-              placeholder="Enter your email"
-              onChange={(event) => setValue("email", event.target.value)}
-              trigger={trigger}
-              error={errors.email?.message}
-            />
-            <Input
-              type="password"
-              label="Password"
-              placeholder="Enter your password"
-              onChange={(event) => setValue("password", event.target.value)}
-              trigger={trigger}
-              error={errors.password?.message}
-            />
-            <Button
-              label="Login"
-              onClick={() => console.error("test")}
-              disabled={isSubmitting}
-            />
-          </form>
+          <LoginForm onSubmit={onSubmit} />
         </div>
       </div>
 
       <div className="w-full md:flex items-center justify-center p-6 hidden">
         <div className="w-full md:w-1/2 flex justify-center m-2">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col w-full max-w-md gap-3"
-          >
-            <h1 className="text-xl font-bold text-primary">Welcome Back 👋</h1>
-            <span className="mb-4 text-sm text-gray-600">
-              Enter your Credentials to access your account
-            </span>
-            <Input
-              type="email"
-              label="Email"
-              placeholder="Enter your email"
-              onChange={(event) => setValue("email", event.target.value)}
-              trigger={trigger}
-              error={errors.email?.message}
-            />
-            <Input
-              type="password"
-              label="Password"
-              placeholder="Enter your password"
-              onChange={(event) => setValue("password", event.target.value)}
-              trigger={trigger}
-              error={errors.password?.message}
-            />
-            <Button
-              label="Login"
-              onClick={() => console.error("testing")}
-              disabled={isSubmitting}
-            />
-          </form>
+          <LoginForm onSubmit={onSubmit} />
         </div>
         <div className="w-full md:w-1/2 h-full">
           <img
