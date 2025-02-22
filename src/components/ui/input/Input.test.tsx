@@ -36,6 +36,6 @@ describe("Input Component", () => {
     await userEvent.type(inputElement, "JohnDoe");
 
     expect(handleChange).toHaveBeenCalledTimes(7);
-    expect(inputElement).toHaveValue("");
+    expect(inputElement).toHaveValue("JohnDoe");
   });
 });
