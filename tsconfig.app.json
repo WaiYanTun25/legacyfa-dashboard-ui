@@ -3,7 +3,8 @@
     "baseUrl": "./src",
     "paths": {
       "@src/*": ["./*"],
-      "@pages/*": ["./pages/*"]
+      "@pages/*": ["./pages/*"],
+      "@routes/*": ["./routes/*"]
     },
     "target": "es2023",
     "lib": ["dom", "dom.iterable", "esnext"],

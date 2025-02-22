@@ -1,7 +1,7 @@
+import { routes } from "@routes/index";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 export const App = () => {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline text-primary">Test Tailwind Css</h1>
-    </>
-  )
-}
+  const router = createBrowserRouter(routes);
+
+  return <RouterProvider router={router} />;
+};
