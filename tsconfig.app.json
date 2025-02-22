@@ -8,6 +8,7 @@
       "@components/*": ["./components/*"],
       "@assets/*": ["./assets/*"],
       "@schemas/*": ["./schemas/*"],
+      "@services/*": ["./services/*"]
     },
     "target": "es2023",
     "lib": ["dom", "dom.iterable", "esnext"],

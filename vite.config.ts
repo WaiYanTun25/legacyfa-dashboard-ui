@@ -13,6 +13,7 @@ export default defineConfig({
       "@components": "/src/components",
       "@assets": "/src/assets",
       "@schemas": "/src/schemas",
+      "@services": "/src/services",
     },
   },
   build: {
