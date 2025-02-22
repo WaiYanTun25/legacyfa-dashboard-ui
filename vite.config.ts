@@ -12,6 +12,7 @@ export default defineConfig({
       "@pages": "/src/pages",
       "@routes": "/src/routes",
       "@components": "/src/components",
+      "@assets": "/src/assets",
     },
   },
   build: {
