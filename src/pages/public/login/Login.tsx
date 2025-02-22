@@ -1,5 +1,5 @@
 import React from "react";
-import login from "@assets/images/login.png";
+import { assets } from "@assets/index";
 
 export const Login = () => {
   return (
@@ -7,7 +7,7 @@ export const Login = () => {
       <div className="w-full md:w-1/2 h-full relative rounded-2xl p-10 md:hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${login})` }}
+          style={{ backgroundImage: `url(${assets.images.loginImage})` }}
         ></div>
         <div className="relative z-10 flex items-center justify-center h-full">
           <form className="flex flex-col items-center justify-center space-y-4 w-full max-w-md bg-white bg-opacity-75 p-6 rounded-lg">
@@ -38,7 +38,7 @@ export const Login = () => {
         </div>
         <div className="w-full md:w-1/2 h-full">
           <img
-            src={login}
+            src={assets.images.loginImage}
             className="w-full h-full object-cover rounded-2xl"
             alt=""
           />
