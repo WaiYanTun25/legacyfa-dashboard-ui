@@ -64,7 +64,10 @@ export const Login = () => {
 
       <div className="w-full md:flex items-center justify-center p-6 hidden">
         <div className="w-full md:w-1/2 flex justify-center m-2">
-          <div className="flex flex-col w-full max-w-md gap-3">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col w-full max-w-md gap-3"
+          >
             <h1 className="text-xl font-bold text-primary">Welcome Back 👋</h1>
             <span className="mb-4 text-gray-600">
               Enter your Credentials to access your account
@@ -85,8 +88,12 @@ export const Login = () => {
               trigger={trigger}
               error={errors.password?.message}
             />
-            <Button label="Login" onClick={() => console.error("testing")} />
-          </div>
+            <Button
+              label="Login"
+              onClick={() => console.error("testing")}
+              disabled={isSubmitting}
+            />
+          </form>
         </div>
         <div className="w-full md:w-1/2 h-full">
           <img
