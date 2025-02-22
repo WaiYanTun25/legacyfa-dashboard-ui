@@ -34,7 +34,7 @@ export const Login = () => {
             <h1 className="md:text-sm text-xl font-bold text-primary">
               Welcome Back 👋
             </h1>
-            <span className="mb-4 text-gray-600">
+            <span className="mb-4 text-sm text-gray-600">
               Enter your Credentials to access your account.
             </span>
             <Input
@@ -69,7 +69,7 @@ export const Login = () => {
             className="flex flex-col w-full max-w-md gap-3"
           >
             <h1 className="text-xl font-bold text-primary">Welcome Back 👋</h1>
-            <span className="mb-4 text-gray-600">
+            <span className="mb-4 text-sm text-gray-600">
               Enter your Credentials to access your account
             </span>
             <Input
