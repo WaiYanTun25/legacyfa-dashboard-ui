@@ -5,6 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import checkFile from "eslint-plugin-check-file";
 import unusedImports from "eslint-plugin-unused-imports";
+import thRules from "eslint-plugin-th-rules";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -38,6 +39,21 @@ export default tseslint.config(
         },
       ],
       "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
+  {
+    files: ["**/*.{ts,tsx}"],
+    plugins: {
+      "th-rules": thRules,
+    },
+    rules: {
+      "th-rules/no-comments": [
+        "error",
+        {
+          allow: ["keep", "important", "vite/client"],
+          disallow: ["deprecated", "hack"],
+        },
+      ],
     },
   },
   {
