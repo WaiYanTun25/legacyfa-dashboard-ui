@@ -6,7 +6,7 @@ export const Login = () => {
     <div className="flex h-screen flex-col md:flex-row">
       <div className="w-full md:w-1/2 h-full relative rounded-2xl p-10 md:hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center rounded-2xl"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${login})` }}
         ></div>
         <div className="relative z-10 flex items-center justify-center h-full">
