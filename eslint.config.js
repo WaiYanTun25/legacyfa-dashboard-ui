@@ -33,7 +33,7 @@ export default tseslint.config(
         "error",
         {
           vars: "all",
-          args: "after-used",
+          args: "none",
           ignoreRestSiblings: false,
         },
       ],
