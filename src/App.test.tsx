@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { App } from "./App";
 import "@testing-library/jest-dom";
+import { App } from "./App";
 
-test("renders heading with correct text and styles", () => {
+test("renders heading with correct text", () => {
   render(<App />);
 
   const headingElement = screen.getByText(/Test Tailwind Css/i);
