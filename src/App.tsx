@@ -1,4 +1,4 @@
-import { routes } from "@routes/index";
+import { routes } from "@routes/route";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 export const App = () => {
   const router = createBrowserRouter(routes);

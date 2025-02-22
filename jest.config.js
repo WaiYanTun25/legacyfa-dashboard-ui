@@ -10,5 +10,11 @@ export default {
       },
     ],
   },
+  moduleNameMapper: {
+    "^@routes/(.*)$": "<rootDir>/src/routes/$1",
+    "^@pages/(.*)$": "<rootDir>/src/pages/$1",
+    "^@src/(.*)$": "<rootDir>/src/$1",
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
+  },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
 };

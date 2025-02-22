@@ -4,7 +4,8 @@
     "paths": {
       "@src/*": ["./*"],
       "@pages/*": ["./pages/*"],
-      "@routes/*": ["./routes/*"]
+      "@routes/*": ["./routes/*"],
+      "@components/*": ["./components/*"],
     },
     "target": "es2023",
     "lib": ["dom", "dom.iterable", "esnext"],

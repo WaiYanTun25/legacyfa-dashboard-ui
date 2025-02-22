@@ -1,7 +1,6 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PrivateRoute } from "./PrivateRoute";
+import { PrivateRoute } from "@components/PrivateRoute";
 import "@testing-library/jest-dom";
 
 const TestWrapper = ({ isAuthenticated }: { isAuthenticated: boolean }) => (
