@@ -30,7 +30,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         label="Email"
         placeholder="Enter your email"
         onChange={(event) => setValue("email", event.target.value)}
-        trigger={trigger}
+        trigger={() => trigger("email")}
         error={errors.email?.message}
       />
       <Input
@@ -38,7 +38,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         label="Password"
         placeholder="Enter your password"
         onChange={(event) => setValue("password", event.target.value)}
-        trigger={trigger}
+        trigger={() => trigger("password")}
         error={errors.password?.message}
       />
       <Button

@@ -1,10 +1,21 @@
 import { assets } from "@assets/index";
 import { LoginFormDataType } from "@pages/public/login/Login.type";
 import { LoginForm } from "@pages/public/login/LoginForm";
+import { useAuth } from "@src/hooks/useAuth";
+import { useToast } from "@src/hooks/useToast";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const navigate = useNavigate();
+  const { showError } = useToast();
+  const { login } = useAuth();
   const onSubmit = (data: LoginFormDataType) => {
-    console.error(data);
+    if (data.email === "admin@gmail.com" && data.password === "admin!@#$") {
+      login(data);
+      navigate("/");
+    } else {
+      showError("Invalid Credentials");
+    }
   };
 
   return (

@@ -1,13 +1,11 @@
-import { routes } from "@routes/route";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AppRoutes } from "@routes/route";
 import { ToastContainer } from "react-toastify";
+import { AuthProvider } from "@services/provider/AuthProvider";
 export const App = () => {
-  const router = createBrowserRouter(routes);
-
   return (
-    <>
-      <RouterProvider router={router} />
+    <AuthProvider>
+      <AppRoutes />
       <ToastContainer />
-    </>
+    </AuthProvider>
   );
 };
