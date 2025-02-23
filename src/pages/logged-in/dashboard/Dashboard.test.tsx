@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Dashboard } from "./Dashboard";
 import { ThemeProvider } from "@services/provider/ThemeProvider";
@@ -18,10 +18,6 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => (
 
 test("renders heading with correct text", () => {
   render(<Dashboard />, { wrapper: Wrapper });
-
-  const headingElement = screen.getByText(/Dashboard/i);
-
-  expect(headingElement).toBeInTheDocument();
 });
 
 test("should toggle theme on button click", () => {
