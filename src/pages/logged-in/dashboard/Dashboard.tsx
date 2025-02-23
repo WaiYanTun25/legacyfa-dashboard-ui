@@ -4,7 +4,7 @@ export const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="h-full p-6">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">Dashboard</h1>
         <button

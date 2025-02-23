@@ -1,22 +1,28 @@
 import { Outlet } from "react-router-dom";
 import { useTheme } from "@src/hooks/useTheme";
 import { Sidebar } from "@pages/logged-in/layout/Sidebar";
+import { TopNavbar } from "@pages/logged-in/layout/TopNavbar";
 
 export const Layout = () => {
   const { theme } = useTheme();
+
   return (
     <div
       className={`min-h-screen flex ${
         theme === "dark" ? "bg-[#1F1F1F] text-white" : "bg-[#F5F5F5] text-black"
       }`}
     >
-      <Sidebar />
+      <div className="lg:w-64">
+        <Sidebar />
+      </div>
 
-      <main className="flex-1 p-6 lg:ml-64">
-        <Outlet />
-      </main>
+      <div className="flex-1">
+        <TopNavbar />
 
-      <footer className=""></footer>
+        <main className="p-6">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };

@@ -39,7 +39,7 @@ export const Sidebar = () => {
     <>
       <button
         onClick={toggleMobileMenu}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-primary text-white"
+        className="lg:hidden fixed top-6 left-4 z-50 p-2 rounded-lg bg-primary text-white"
       >
         {isMobileMenuOpen ? (
           <XMarkIcon className="h-6 w-6" />
@@ -100,7 +100,7 @@ export const Sidebar = () => {
         </div>
 
         <div className="m-3">
-          <div className="bg-primary rounded-lg p-4 text-white">
+          <div className="bg-primary rounded-[1.5em] p-4 text-white text-center">
             <div className="flex justify-center mb-2">
               <CubeIcon className="h-10 w-10" />
             </div>
@@ -109,7 +109,7 @@ export const Sidebar = () => {
               <br />
               click to update
             </p>
-            <button className="w-full bg-white text-primary rounded-lg py-2 text-sm font-medium">
+            <button className="w-[80%] bg-white text-primary rounded-[2em] py-2 text-sm font-medium">
               Update
             </button>
           </div>
