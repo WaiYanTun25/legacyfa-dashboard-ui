@@ -53,14 +53,12 @@ export const GraphSection = () => {
         <p className="text-green-500">↑ 36%</p>
       </div>
 
-      {}
       <div className="shadow-sm rounded-2xl p-5 lg:col-span-1 bg-white">
         <h1 className="font-bold mb-3">Profit</h1>
         <p className="text-3xl font-bold">₹ 97,287</p>
         <p className="text-green-500">↑ 27%</p>
       </div>
 
-      {}
       <div className="shadow-sm rounded-2xl p-5 lg:col-span-3 bg-white">
         <h1 className="font-bold mb-3">Product Class</h1>
         <ResponsiveContainer width="100%" height={200}>
@@ -83,7 +81,6 @@ export const GraphSection = () => {
         </ResponsiveContainer>
       </div>
 
-      {}
       <div className="shadow-sm rounded-2xl p-5 lg:col-span-2 bg-white">
         <h1 className="font-bold mb-3">Customer Satisfaction</h1>
         <ResponsiveContainer width="100%" height={100}>
@@ -97,7 +94,6 @@ export const GraphSection = () => {
         </ResponsiveContainer>
       </div>
 
-      {}
       <div className="shadow-sm rounded-2xl p-5 lg:col-span-1 bg-white flex flex-col items-center justify-center">
         <h1 className="font-bold">Sales Target</h1>
         <p className="text-4xl font-bold text-green-500">82%</p>
