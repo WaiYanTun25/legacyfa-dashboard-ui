@@ -3,6 +3,12 @@ export interface Country {
   flag: string;
 }
 
+export interface ProductDataType {
+  name: string;
+  value: number;
+  color: string;
+}
+
 export const COUNTRY_LIST: Country[] = [
   {
     name: "Myanmar",
@@ -47,25 +53,36 @@ export const Area_Data = [
   {
     name: "Page A",
     uv: 400,
-    pv: 2400,
-    amt: 2400,
   },
   {
     name: "Page B",
     uv: 600,
-    pv: 1398,
-    amt: 2210,
   },
   {
     name: "Page C",
     uv: 550,
-    pv: 9800,
-    amt: 2290,
   },
   {
     name: "Page D",
     uv: 740,
-    pv: 3908,
-    amt: 2000,
+  },
+];
+
+export const Profit_Data = [
+  {
+    name: "Page A",
+    uv: 500,
+  },
+  {
+    name: "Page B",
+    uv: 400,
+  },
+  {
+    name: "Page C",
+    uv: 650,
+  },
+  {
+    name: "Page D",
+    uv: 600,
   },
 ];

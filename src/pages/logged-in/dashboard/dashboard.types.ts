@@ -3,3 +3,8 @@ export interface WeeklySalesDataType {
   sales: number;
   color: string;
 }
+
+export interface AreaDataType {
+  name: string;
+  uv: number;
+}
