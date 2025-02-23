@@ -7,6 +7,7 @@ import { Login } from "@src/pages/public/login/Login";
 import { PrivateRoute } from "@src/components/PrivateRoute";
 import { Dashboard } from "@src/pages/logged-in/dashboard/Dashboard";
 import { NotFound } from "@src/pages/public/not-found/NotFound";
+import { Layout } from "@src/pages/logged-in/layout/Layout";
 
 export const AppRoutes = () => {
   const routes: RouteObject[] = [
@@ -18,8 +19,13 @@ export const AppRoutes = () => {
       element: <PrivateRoute />,
       children: [
         {
-          path: "/",
-          element: <Dashboard />,
+          element: <Layout />,
+          children: [
+            {
+              path: "/",
+              element: <Dashboard />,
+            },
+          ],
         },
       ],
     },
