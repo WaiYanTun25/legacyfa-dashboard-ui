@@ -19,7 +19,7 @@ export const Layout = () => {
       <div className="flex-1">
         <TopNavbar />
 
-        <main className="p-6">
+        <main className="m-5">
           <Outlet />
         </main>
       </div>

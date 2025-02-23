@@ -11,7 +11,6 @@ import {
   Cog6ToothIcon,
   ArrowRightOnRectangleIcon,
   Bars3Icon,
-  XMarkIcon,
   CubeIcon,
 } from "@heroicons/react/24/outline";
 
@@ -39,13 +38,11 @@ export const Sidebar = () => {
     <>
       <button
         onClick={toggleMobileMenu}
-        className="lg:hidden fixed top-6 left-4 z-50 p-2 rounded-lg bg-primary text-white"
+        className={`lg:hidden fixed top-6 left-2 p-2 rounded-lg bg-primary text-white 
+    ${isMobileMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"} 
+    transition-all duration-1000 ease-in-out`}
       >
-        {isMobileMenuOpen ? (
-          <XMarkIcon className="h-6 w-6" />
-        ) : (
-          <Bars3Icon className="h-6 w-6" />
-        )}
+        {!isMobileMenuOpen && <Bars3Icon className="h-8 w-8" />}
       </button>
 
       {isMobileMenuOpen && (
