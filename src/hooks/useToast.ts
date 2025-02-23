@@ -2,7 +2,7 @@ import { Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const useToast = () => {
-  const success = (message: string) => {
+  const showSuccess = (message: string) => {
     toast.success(message, {
       position: "top-right",
       autoClose: 5000,
@@ -14,7 +14,7 @@ export const useToast = () => {
     });
   };
 
-  const error = (message: string) => {
+  const showError = (message: string) => {
     toast.error(message, {
       position: "top-right",
       autoClose: 3000,
@@ -27,7 +27,7 @@ export const useToast = () => {
     });
   };
 
-  const info = (message: string) => {
+  const showInfo = (message: string) => {
     toast.info(message, {
       position: "top-right",
       autoClose: 5000,
@@ -38,7 +38,7 @@ export const useToast = () => {
       progress: undefined,
     });
   };
-  const warning = (message: string) => {
+  const showWarning = (message: string) => {
     toast.warning(message, {
       position: "top-right",
       autoClose: 5000,
@@ -50,5 +50,5 @@ export const useToast = () => {
     });
   };
 
-  return { success, error, info, warning };
+  return { showSuccess, showError, showInfo, showWarning };
 };
