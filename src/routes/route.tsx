@@ -25,6 +25,10 @@ export const AppRoutes = () => {
               path: "/",
               element: <Dashboard />,
             },
+            {
+              path: "*",
+              element: <NotFound />,
+            },
           ],
         },
       ],
