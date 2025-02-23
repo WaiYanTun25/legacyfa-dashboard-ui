@@ -5,11 +5,11 @@ export const Input = ({
   label = "Input",
   placeholder = "",
   onChange,
-  trigger = () => {},
+  trigger = (name?: string) => Promise.resolve(false),
   error,
 }: InputProps) => {
   return (
-    <div className="flex flex-col w-full gap-2">
+    <div className="flex flex-col w-full gap-2 h-25">
       <label
         htmlFor={type}
         className="text-left text-sm font-semibold text-gray-600"

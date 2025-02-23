@@ -6,5 +6,5 @@ export interface InputProps {
   placeholder?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   error?: string;
-  trigger?: () => void;
+  trigger?: (name?: string) => Promise<boolean>;
 }
