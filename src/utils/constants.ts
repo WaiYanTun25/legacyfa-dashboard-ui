@@ -9,6 +9,16 @@ export interface ProductDataType {
   color: string;
 }
 
+export interface OrderDataType {
+  id: number;
+  name: string;
+  city: string;
+  date: string;
+  status: string;
+  price: string;
+  img: string;
+}
+
 export const COUNTRY_LIST: Country[] = [
   {
     name: "Myanmar",
@@ -84,5 +94,35 @@ export const Profit_Data = [
   {
     name: "Page D",
     uv: 600,
+  },
+];
+
+export const Order_Data: OrderDataType[] = [
+  {
+    id: 1,
+    name: "Kuppuraj",
+    city: "Coimbatore",
+    date: "03-09-2023",
+    status: "Delivered",
+    price: "₹ 18,999",
+    img: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    id: 2,
+    name: "Dinesh",
+    city: "Chennai",
+    date: "03-09-2023",
+    status: "Cancelled",
+    price: "₹ 2,200",
+    img: "https://randomuser.me/api/portraits/men/45.jpg",
+  },
+  {
+    id: 3,
+    name: "Logu",
+    city: "Bangalore",
+    date: "03-09-2023",
+    status: "Delivered",
+    price: "₹ 24,432",
+    img: "https://randomuser.me/api/portraits/men/50.jpg",
   },
 ];
