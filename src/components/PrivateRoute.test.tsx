@@ -2,14 +2,14 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "@components/PrivateRoute";
 import "@testing-library/jest-dom";
+import { useAuth } from "@src/hooks/useAuth";
 
-const TestWrapper = ({ isAuthenticated }: { isAuthenticated: boolean }) => (
+jest.mock("@src/hooks/useAuth");
+
+const TestWrapper = () => (
   <BrowserRouter>
     <Routes>
-      <Route
-        path="/"
-        element={<PrivateRoute isAuthenticated={isAuthenticated} />}
-      >
+      <Route path="/" element={<PrivateRoute />}>
         <Route path="/" element={<div>Private Content</div>} />
       </Route>
       <Route path="/login" element={<div>Login Page</div>} />
@@ -19,13 +19,16 @@ const TestWrapper = ({ isAuthenticated }: { isAuthenticated: boolean }) => (
 
 describe("PrivateRoute", () => {
   it("should render the private content when the user is authenticated", () => {
-    render(<TestWrapper isAuthenticated={true} />);
+    (useAuth as jest.Mock).mockReturnValue({ isAuthenticated: true });
+
+    render(<TestWrapper />);
 
     expect(screen.getByText("Private Content")).toBeInTheDocument();
   });
 
   it("should redirect to login page when the user is not authenticated", () => {
-    render(<TestWrapper isAuthenticated={false} />);
+    (useAuth as jest.Mock).mockReturnValue({ isAuthenticated: false });
+    render(<TestWrapper />);
 
     expect(screen.getByText("Login Page")).toBeInTheDocument();
   });

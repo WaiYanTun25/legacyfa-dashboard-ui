@@ -15,6 +15,7 @@ export default {
     "^@pages/(.*)$": "<rootDir>/src/pages/$1",
     "^@src/(.*)$": "<rootDir>/src/$1",
     "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@services/(.*)$": "<rootDir>/src/services/$1",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
 };
