@@ -29,9 +29,6 @@ export const GraphSection = () => {
       />
 
       <PieChartCard title="Product Class" data={Product_Data} />
-      {}
-
-      {}
     </div>
   );
 };
