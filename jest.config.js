@@ -11,6 +11,7 @@ export default {
     ],
   },
   moduleNameMapper: {
+    "\\.css$": "identity-obj-proxy",
     "^@routes/(.*)$": "<rootDir>/src/routes/$1",
     "^@pages/(.*)$": "<rootDir>/src/pages/$1",
     "^@src/(.*)$": "<rootDir>/src/$1",
