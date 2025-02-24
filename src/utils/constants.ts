@@ -25,6 +25,11 @@ export interface CustomerSatisfactionDataType {
   thisMonth: number;
 }
 
+export interface SalesTargetDataType {
+  name: string;
+  value: number;
+}
+
 export const COUNTRY_LIST: Country[] = [
   {
     name: "Myanmar",
@@ -140,4 +145,9 @@ export const Customer_Satisfaction_Data = [
   { name: "Apr", lastMonth: 60, thisMonth: 70 },
   { name: "May", lastMonth: 50, thisMonth: 65 },
   { name: "Jun", lastMonth: 70, thisMonth: 90 },
+];
+
+export const Sales_Target_Data: SalesTargetDataType[] = [
+  { name: "Achieved", value: 82 },
+  { name: "Remaining", value: 18 },
 ];
