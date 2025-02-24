@@ -1,7 +1,14 @@
+import { AppRoutes } from "@routes/route";
+import { ToastContainer } from "react-toastify";
+import { AuthProvider } from "@services/provider/AuthProvider";
+import { ThemeProvider } from "./services/provider/ThemeProvider";
 export const App = () => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-primary">Test Tailwind Css</h1>
-    </>
-  )
-}
+    <AuthProvider>
+      <ThemeProvider>
+        <AppRoutes />
+        <ToastContainer />
+      </ThemeProvider>
+    </AuthProvider>
+  );
+};
