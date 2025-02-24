@@ -8,13 +8,20 @@ import {
   BellIcon,
   ChevronDownIcon,
   XMarkIcon,
+  Bars3Icon,
   ChatBubbleOvalLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
 import { useAuth } from "@src/hooks";
 import { assets } from "@assets/index";
 import { LanguageSelector } from "@src/components/LanguageSelector";
 
-export const TopNavbar = () => {
+export const TopNavbar = ({
+  toggleMobileMenu,
+  isMobileMenuOpen,
+}: {
+  toggleMobileMenu: () => void;
+  isMobileMenuOpen: boolean;
+}) => {
   const { theme, toggleTheme } = useTheme();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { userData } = useAuth();
@@ -37,9 +44,17 @@ export const TopNavbar = () => {
 
   return (
     <nav
-      className={`${theme === "dark" ? "bg-black" : "bg-white"} shadow-sm px-4 py-2 ml-16 lg:ml-10 mt-5 mr-3 rounded-2xl`}
+      className={`${theme === "dark" ? "bg-black" : "bg-white"} shadow-sm px-4 py-2 lg:ml-10 mt-5 mx-3 rounded-2xl`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <button
+          onClick={toggleMobileMenu}
+          className={`lg:hidden top-6 left-2 p-2 rounded-lg bg-primary text-white 
+    ${isMobileMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"} 
+    transition-all duration-1000 ease-in-out`}
+        >
+          {!isMobileMenuOpen && <Bars3Icon className="h-5 w-5" />}
+        </button>
         <div
           className={`
           ${isSearchOpen ? "absolute inset-x-0 top-0 bg-inherit p-4" : "relative"} 
