@@ -6,8 +6,18 @@ import {
   UserCircleIcon,
   CircleStackIcon,
 } from "@heroicons/react/24/outline";
+import { CardDataType } from "@src/utils/constants";
 
-export const SalesSection = () => {
+export const SalesSection = ({
+  data,
+}: {
+  data: {
+    totalSales: CardDataType;
+    totalOrders: CardDataType;
+    newCustomers: CardDataType;
+    totalEarnings: CardDataType;
+  };
+}) => {
   const { theme } = useTheme();
   return (
     <div
@@ -21,37 +31,37 @@ export const SalesSection = () => {
             icon={
               <BanknotesIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#F6617F]" />
             }
-            amount="₹ 37,500"
+            amount={data.totalSales.amount}
             title="Total Sales"
             color="bg-[#FCDEE1]"
-            previousAmount="+18% from yesterday"
+            previousAmount={data.totalOrders.previousAmount}
           />
           <DashboardCard
             icon={
               <ChartBarSquareIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#47D65D]" />
             }
-            amount="365"
+            amount={data.totalOrders.amount}
             title="Total Orders"
             color="bg-[#C9FAD9]"
-            previousAmount="+27% from yesterday"
+            previousAmount={data.totalOrders.previousAmount}
           />
           <DashboardCard
             icon={
               <UserCircleIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#BE85FC]" />
             }
-            amount="36"
+            amount={data.newCustomers.amount}
             title="New Customers"
             color="bg-[#E8D9FA]"
-            previousAmount="+8% from yesterday"
+            previousAmount={data.newCustomers.previousAmount}
           />
           <DashboardCard
             icon={
               <CircleStackIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#FC957D]" />
             }
-            amount="₹ 16,500"
+            amount={data.totalEarnings.amount}
             title="Total Earnings"
             color="bg-[#FAE9C7]"
-            previousAmount="+23% from yesterday"
+            previousAmount={data.totalEarnings.previousAmount}
           />
         </div>
       </div>

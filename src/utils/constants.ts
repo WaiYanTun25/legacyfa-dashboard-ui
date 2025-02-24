@@ -19,6 +19,11 @@ export interface OrderDataType {
   img: string;
 }
 
+export interface CardDataType {
+  amount: string;
+  previousAmount: string;
+}
+
 export interface CustomerSatisfactionDataType {
   name: string;
   lastMonth: number;
