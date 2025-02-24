@@ -13,6 +13,7 @@ import {
 import { useAuth } from "@src/hooks";
 import { assets } from "@assets/index";
 import { LanguageSelector } from "@src/components/LanguageSelector";
+import { useNavigate } from "react-router-dom";
 
 export const TopNavbar = ({
   toggleMobileMenu,
@@ -22,7 +23,8 @@ export const TopNavbar = ({
   isMobileMenuOpen: boolean;
 }) => {
   const { theme, toggleTheme } = useTheme();
-  const { userData } = useAuth();
+  const navigate = useNavigate();
+  const { userData, logout } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -39,6 +41,11 @@ export const TopNavbar = ({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <nav
@@ -131,7 +138,10 @@ export const TopNavbar = ({
                   <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-[#43A9FB]" />
                   Chat
                 </button>
-                <button className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                <button
+                  className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  onClick={handleLogout}
+                >
                   Logout
                 </button>
               </div>

@@ -11,6 +11,7 @@ import {
   ArrowRightOnRectangleIcon,
   CubeIcon,
 } from "@heroicons/react/24/outline";
+import { useAuth } from "@src/hooks";
 
 const navigationItems = [
   { name: "Dashboard", path: "/", icon: ChartBarIcon },
@@ -32,8 +33,13 @@ export const Sidebar = ({
   setIsMobileMenuOpen: (value: boolean) => void;
 }) => {
   const { theme } = useTheme();
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <>
@@ -106,7 +112,7 @@ export const Sidebar = ({
           </div>
 
           <button
-            onClick={() => {}}
+            onClick={handleLogout}
             className={`md:mt-10 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
               ${theme === "dark" ? "text-red-400 hover:bg-gray-800" : "text-red-600 hover:bg-gray-100"}`}
           >
