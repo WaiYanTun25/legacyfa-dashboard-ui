@@ -7,6 +7,7 @@ export const Input = ({
   onChange,
   trigger = (name?: string) => Promise.resolve(false),
   error,
+  disabled,
 }: InputProps) => {
   return (
     <div className="flex flex-col w-full gap-2 h-25">
@@ -18,6 +19,7 @@ export const Input = ({
       </label>
       <input
         id={type}
+        disabled={disabled}
         type={type}
         className={`p-3 border border-gray-300 rounded-md w-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out hover:border-primary focus:border-primary ${
           error && "border-red-500"

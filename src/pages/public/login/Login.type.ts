@@ -5,4 +5,5 @@ export interface LoginFormDataType {
 
 export interface LoginFormProps {
   onSubmit: (data: LoginFormDataType) => void;
+  isSubmitting: boolean;
 }
