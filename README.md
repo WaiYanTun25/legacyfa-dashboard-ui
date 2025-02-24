@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+Project Name
+Overview
+This project is built using modern web technologies, ensuring a fast, scalable, and maintainable codebase.
+Technologies Used
+* React: A JavaScript library for building user interfaces.
+* Vite: A fast and efficient build tool for modern web applications.
+* TypeScript: A typed superset of JavaScript for better maintainability.
+* TailwindCSS: A utility-first CSS framework for rapid UI development.
+* Redux Toolkit (RTK): A state management solution for predictable and scalable applications.
+* Jest: A testing framework for unit and integration testing.
+* Husky: A tool to manage Git hooks and enforce coding standards.
+Getting Started
+Prerequisites
+Ensure you have the following installed:
+* Node.js (latest LTS version recommended)
+* npm or yarn
+Installation
+# Clone the repository
+git clone https://github.com/WaiYanTun25/legacyfa-dashboard-ui.git
+cd legacyfa-dashboard-ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Install dependencies
+npm install  # or yarn install
+Running the Project
+# Start the development server
+npm run dev  # or yarn dev
+Running Tests
+# Run Jest tests
+npm run test  # or yarn test
+Linting & Pre-commit Hooks
+Husky is configured to enforce linting and formatting before commits.
+npm run lint  # or yarn lint
+Contributing
+Feel free to contribute by submitting issues or pull requests.
+License
+This project is licensed under the MIT License.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Happy Coding! 🚀
