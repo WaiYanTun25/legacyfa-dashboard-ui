@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "@src/hooks/useTheme";
 import {
@@ -10,7 +9,6 @@ import {
   UserGroupIcon,
   Cog6ToothIcon,
   ArrowRightOnRectangleIcon,
-  Bars3Icon,
   CubeIcon,
 } from "@heroicons/react/24/outline";
 
@@ -24,26 +22,22 @@ const navigationItems = [
   { name: "Settings", path: "/settings", icon: Cog6ToothIcon },
 ];
 
-export const Sidebar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+export const Sidebar = ({
+  isMobileMenuOpen,
+  toggleMobileMenu,
+  setIsMobileMenuOpen,
+}: {
+  isMobileMenuOpen: boolean;
+  toggleMobileMenu: () => void;
+  setIsMobileMenuOpen: (value: boolean) => void;
+}) => {
   const { theme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <>
-      <button
-        onClick={toggleMobileMenu}
-        className={`lg:hidden fixed top-6 left-2 p-2 rounded-lg bg-primary text-white 
-    ${isMobileMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"} 
-    transition-all duration-1000 ease-in-out`}
-      >
-        {!isMobileMenuOpen && <Bars3Icon className="h-8 w-8" />}
-      </button>
+      {}
 
       {isMobileMenuOpen && (
         <div

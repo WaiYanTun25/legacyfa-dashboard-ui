@@ -1,20 +1,22 @@
 import { useTheme } from "@src/hooks";
 import { PieChart, Pie, Cell } from "recharts";
-
-const data = [
-  { name: "Achieved", value: 82 },
-  { name: "Remaining", value: 18 },
-];
+import { SalesTargetDataType } from "@src/utils/constants";
 
 const COLORS = ["#35E0A1", "#E5F6EF"];
 
-export const SalesTargetCard = () => {
+export const SalesTargetCard = ({
+  data,
+  title,
+}: {
+  data: SalesTargetDataType[];
+  title: string;
+}) => {
   const { theme } = useTheme();
   return (
     <div
       className={`shadow-md rounded-2xl flex flex-col items-center p-4 lg:col-span-1 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
     >
-      <h2 className="font-bold text-lg">Sales Target</h2>
+      <h1 className="font-bold text-lg self-start">{title}</h1>
       <PieChart width={120} height={120} className="mt-10">
         <Pie
           data={data}

@@ -5,6 +5,7 @@ import {
   Profit_Data,
   Order_Data,
   Customer_Satisfaction_Data,
+  Sales_Target_Data,
 } from "@src/utils/constants";
 import { BarChartCard } from "@pages/logged-in/dashboard/components/BarChartCard";
 import { AreaChartCard } from "@pages/logged-in/dashboard/components/AreaChartCard";
@@ -39,7 +40,7 @@ export const GraphSection = () => {
       <div className="mt-5 lg:ml-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4 text-black">
         <LineChartCard data={Customer_Satisfaction_Data} />
         <RecentTable data={Order_Data} title="Recent Orders" />
-        <SalesTargetCard />
+        <SalesTargetCard data={Sales_Target_Data} title="Sales Target" />
       </div>
     </>
   );

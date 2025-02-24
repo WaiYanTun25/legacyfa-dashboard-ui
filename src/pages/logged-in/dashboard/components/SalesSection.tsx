@@ -1,6 +1,11 @@
 import { DashboardCard } from "@src/components/DashboardCard";
 import { useTheme } from "@src/hooks";
-import { ChartBarSquareIcon, BanknotesIcon } from "@heroicons/react/24/outline";
+import {
+  ChartBarSquareIcon,
+  BanknotesIcon,
+  UserCircleIcon,
+  CircleStackIcon,
+} from "@heroicons/react/24/outline";
 
 export const SalesSection = () => {
   const { theme } = useTheme();
@@ -32,7 +37,7 @@ export const SalesSection = () => {
           />
           <DashboardCard
             icon={
-              <ChartBarSquareIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#F6617F]" />
+              <UserCircleIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#BE85FC]" />
             }
             amount="36"
             title="New Customers"
@@ -41,7 +46,7 @@ export const SalesSection = () => {
           />
           <DashboardCard
             icon={
-              <ChartBarSquareIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#F6617F]" />
+              <CircleStackIcon className="lg:h-15 lg:w-15 h-8 w-8 text-[#FC957D]" />
             }
             amount="₹ 16,500"
             title="Total Earnings"
