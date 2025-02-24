@@ -1,10 +1,10 @@
-import { useAuth } from "@src/hooks/useAuth";
+import { useCookies } from "@src/hooks";
 import { Navigate, Outlet } from "react-router-dom";
 
 export const PrivateRoute = () => {
-  const { isAuthenticated } = useAuth();
+  const { getUserData } = useCookies();
 
-  if (!isAuthenticated) {
+  if (!getUserData) {
     return <Navigate to="/login" replace />;
   }
 

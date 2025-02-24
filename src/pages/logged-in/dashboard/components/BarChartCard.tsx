@@ -6,12 +6,30 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
 import { WeeklySalesDataType } from "@pages/logged-in/dashboard/dashboard.types";
 import { useTheme } from "@src/hooks";
-export const BarChartCard = ({ data }: { data: WeeklySalesDataType[] }) => {
+import { LoadingSkeleton } from "@src/components/ui/loading-skeleton/LoadingSkeleton";
+
+export const BarChartCard = ({
+  data,
+  isLoading,
+}: {
+  data: WeeklySalesDataType[];
+  isLoading: boolean;
+}) => {
   const { theme } = useTheme();
-  return (
+
+  return isLoading ? (
+    <LoadingSkeleton
+      colSpan="lg:col-span-2"
+      responsiveHeights={{
+        base: "230px",
+        sm: "230px",
+        md: "230px",
+        lg: "280px",
+      }}
+    />
+  ) : (
     <div
       className={`shadow-sm rounded-2xl p-5 lg:col-span-2 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
     >

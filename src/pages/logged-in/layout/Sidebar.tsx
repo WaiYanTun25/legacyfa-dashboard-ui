@@ -11,6 +11,8 @@ import {
   ArrowRightOnRectangleIcon,
   CubeIcon,
 } from "@heroicons/react/24/outline";
+import { useAuth, useModal } from "@src/hooks";
+import { ConfirmationModal } from "@src/components/ConfirmModal";
 
 const navigationItems = [
   { name: "Dashboard", path: "/", icon: ChartBarIcon },
@@ -32,13 +34,27 @@ export const Sidebar = ({
   setIsMobileMenuOpen: (value: boolean) => void;
 }) => {
   const { theme } = useTheme();
+  const { logout } = useAuth();
+  const { isOpen, openModal, closeModal, modalProps } = useModal();
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleConfirmAction = () => {
+    navigate("/login");
+    logout();
+  };
+
+  const handleOpenModal = () => {
+    openModal({
+      title: "Confirm Deletion",
+      message: "Are you sure you want to logout ?",
+      confirmText: "Logout",
+      cancelText: "Cancel",
+    });
+  };
+
   return (
     <>
-      {}
-
       {isMobileMenuOpen && (
         <div
           className={`lg:hidden fixed inset-0 bg-opacity-100
@@ -106,7 +122,7 @@ export const Sidebar = ({
           </div>
 
           <button
-            onClick={() => {}}
+            onClick={handleOpenModal}
             className={`md:mt-10 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
               ${theme === "dark" ? "text-red-400 hover:bg-gray-800" : "text-red-600 hover:bg-gray-100"}`}
           >
@@ -115,6 +131,12 @@ export const Sidebar = ({
           </button>
         </div>
       </nav>
+      <ConfirmationModal
+        isOpen={isOpen}
+        onConfirm={handleConfirmAction}
+        onCancel={closeModal}
+        modalProps={modalProps}
+      />
     </>
   );
 };

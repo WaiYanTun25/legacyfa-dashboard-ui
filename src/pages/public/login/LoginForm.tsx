@@ -7,12 +7,12 @@ import {
   LoginFormProps,
 } from "@pages/public/login/Login.type";
 
-export const LoginForm = ({ onSubmit }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isSubmitting }: LoginFormProps) => {
   const {
     setValue,
     handleSubmit,
     trigger,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<LoginFormDataType>({
     resolver: yupResolver(loginShcema),
   });
@@ -32,6 +32,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         onChange={(event) => setValue("email", event.target.value)}
         trigger={() => trigger("email")}
         error={errors.email?.message}
+        disabled={isSubmitting}
       />
       <Input
         type="password"
@@ -40,6 +41,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         onChange={(event) => setValue("password", event.target.value)}
         trigger={() => trigger("password")}
         error={errors.password?.message}
+        disabled={isSubmitting}
       />
       <Button
         label="Login"

@@ -5,7 +5,14 @@ import "@testing-library/jest-dom";
 
 describe("Input Component", () => {
   test("should render input with label", () => {
-    render(<Input label="Username" onChange={() => {}} placeholder="" />);
+    render(
+      <Input
+        label="Username"
+        onChange={() => {}}
+        placeholder=""
+        disabled={false}
+      />,
+    );
 
     expect(screen.getByText("Username")).toBeInTheDocument();
 
@@ -20,6 +27,7 @@ describe("Input Component", () => {
         label="Username"
         placeholder="Enter your username"
         onChange={() => {}}
+        disabled={false}
       />,
     );
 
@@ -29,7 +37,14 @@ describe("Input Component", () => {
 
   test("should trigger onChange event when typing", async () => {
     const handleChange = jest.fn();
-    render(<Input label="Username" onChange={handleChange} placeholder="" />);
+    render(
+      <Input
+        label="Username"
+        onChange={handleChange}
+        placeholder=""
+        disabled={false}
+      />,
+    );
 
     const inputElement = screen.getByLabelText(/username/i);
 

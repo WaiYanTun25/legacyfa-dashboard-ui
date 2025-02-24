@@ -1,3 +1,4 @@
+import { LoadingSkeleton } from "@src/components/ui/loading-skeleton/LoadingSkeleton";
 import { useTheme } from "@src/hooks";
 import { CustomerSatisfactionDataType } from "@src/utils/constants";
 import React from "react";
@@ -5,11 +6,23 @@ import { LineChart, Line, ResponsiveContainer, Legend } from "recharts";
 
 export const LineChartCard = ({
   data,
+  isLoading,
 }: {
   data: CustomerSatisfactionDataType[];
+  isLoading: boolean;
 }) => {
   const { theme } = useTheme();
-  return (
+  return isLoading ? (
+    <LoadingSkeleton
+      colSpan="lg:col-span-2"
+      responsiveHeights={{
+        base: "230px",
+        sm: "230px",
+        md: "230px",
+        lg: "280px",
+      }}
+    />
+  ) : (
     <div
       className={`shadow-sm rounded-2xl p-5 lg:col-span-2  ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
     >
