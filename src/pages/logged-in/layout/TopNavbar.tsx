@@ -53,6 +53,34 @@ export const TopNavbar = ({
         >
           {!isMobileMenuOpen && <Bars3Icon className="h-5 w-5" />}
         </button>
+        <div
+          className={`
+          lg:static lg:w-2/4 w-3/4
+        `}
+        >
+          <div className="relative flex items-center">
+            <div className="lg:block w-50 hidden float-start">
+              <span className="text-md block font-bold">Hello Gokul</span>
+              <span className="text-sm">Welcome Back!</span>
+            </div>
+            <div
+              className={`
+              relative flex items-center w-full ml-6
+            `}
+            >
+              <MagnifyingGlassIcon className="absolute left-3 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search here..."
+                className={`
+                  w-full pl-10 pr-12 py-2 rounded-xl outline-none border-primary border
+                  ${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-900"}
+                `}
+              />
+              <MicrophoneIcon className="absolute right-3 h-5 w-5 text-gray-400" />
+            </div>
+          </div>
+        </div>
 
         <div className="flex items-center gap-4 lg:w-2/4 md:w-1/4 justify-end">
           <div
