@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useCookies } from "@src/hooks";
-import { LoginFormDataType } from "@src/pages/public/login/Login.type";
+import { UserDataType } from "@src/pages/public/login/Login.type";
 import { AuthContext } from "@services/context/AuthContext";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { getUserData, storeUserData, removeUserData } = useCookies();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [userData, setUserData] = useState<LoginFormDataType | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [userData, setUserData] = useState<UserDataType | null>(null);
 
   useEffect(() => {
     const storedUserData = getUserData();
+
     if (storedUserData) {
-      setIsAuthenticated(true);
-      setUserData(JSON.parse(storedUserData));
+      try {
+        const parsedData = JSON.parse(storedUserData);
+        setIsAuthenticated(true);
+        setUserData(parsedData);
+      } catch (error) {
+        console.error("Error parsing user data from cookies:", error);
+        setIsAuthenticated(false);
+        setUserData(null);
+      }
     } else {
       setIsAuthenticated(false);
       setUserData(null);
     }
-    setIsLoading(false);
   }, []);
 
-  const login = (data: LoginFormDataType) => {
+  const login = (data: UserDataType) => {
     storeUserData(data);
     setIsAuthenticated(true);
     setUserData(data);
@@ -32,11 +38,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setIsAuthenticated(false);
     setUserData(null);
   };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout, userData }}>
       {children}

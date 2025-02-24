@@ -11,16 +11,16 @@ export const useModal = () => {
     onCancel: () => {},
   });
 
-  const openModal = useCallback((props = {}) => {
+  const openModal = (props = {}) => {
     setModalProps((prev) => ({ ...prev, ...props }));
     setIsOpen(true);
-  }, []);
+  };
 
   const closeModal = useCallback(() => {
     setIsOpen(false);
     setModalProps({
       title: "Confirm Action",
-      message: "Are you sure you want to proceed?",
+      message: "Are you sure you want to logout?",
       confirmText: "Yes",
       cancelText: "No",
       onConfirm: () => {},

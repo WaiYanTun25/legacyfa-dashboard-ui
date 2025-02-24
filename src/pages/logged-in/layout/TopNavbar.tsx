@@ -10,10 +10,11 @@ import {
   Bars3Icon,
   ChatBubbleOvalLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
-import { useAuth } from "@src/hooks";
+import { useAuth, useModal } from "@src/hooks";
 import { assets } from "@assets/index";
 import { LanguageSelector } from "@src/components/LanguageSelector";
 import { useNavigate } from "react-router-dom";
+import { ConfirmationModal } from "@src/components/ConfirmModal";
 
 export const TopNavbar = ({
   toggleMobileMenu,
@@ -24,6 +25,7 @@ export const TopNavbar = ({
 }) => {
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
+  const { isOpen, openModal, closeModal, modalProps } = useModal();
   const { userData, logout } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -42,9 +44,18 @@ export const TopNavbar = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleLogout = () => {
+  const handleConfirmAction = () => {
     logout();
     navigate("/login");
+  };
+
+  const handleOpenModal = () => {
+    openModal({
+      title: "Confirm Deletion",
+      message: "Are you sure you want to Logout ?",
+      confirmText: "Logout",
+      cancelText: "Cancel",
+    });
   };
 
   return (
@@ -67,7 +78,9 @@ export const TopNavbar = ({
         >
           <div className="relative flex items-center">
             <div className="lg:block w-50 hidden float-start">
-              <span className="text-md block font-bold">Hello Gokul</span>
+              <span className="text-md block font-bold">
+                Hello {userData?.username || "User"}
+              </span>
               <span className="text-sm">Welcome Back!</span>
             </div>
             <div
@@ -140,7 +153,7 @@ export const TopNavbar = ({
                 </button>
                 <button
                   className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
-                  onClick={handleLogout}
+                  onClick={handleOpenModal}
                 >
                   Logout
                 </button>
@@ -149,6 +162,12 @@ export const TopNavbar = ({
           </div>
         </div>
       </div>
+      <ConfirmationModal
+        isOpen={isOpen}
+        onConfirm={handleConfirmAction}
+        onCancel={closeModal}
+        modalProps={modalProps}
+      />
     </nav>
   );
 };
