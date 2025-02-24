@@ -1,5 +1,6 @@
 import { Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts";
 import { AreaDataType } from "@pages/logged-in/dashboard/dashboard.types";
+import { useTheme } from "@src/hooks";
 
 export const AreaChartCard = ({
   data,
@@ -14,8 +15,11 @@ export const AreaChartCard = ({
   percentage: string;
   areaColor: string;
 }) => {
+  const { theme } = useTheme();
   return (
-    <div className="shadow-sm rounded-2xl p-5 lg:col-span-1 bg-white">
+    <div
+      className={`shadow-sm rounded-2xl p-5 lg:col-span-1 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
+    >
       <h1 className="font-bold mb-3">{label}</h1>
       <ResponsiveContainer width="100%" height={100}>
         <AreaChart

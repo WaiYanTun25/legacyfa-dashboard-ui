@@ -1,18 +1,18 @@
+import { useTheme } from "@src/hooks";
+import { CustomerSatisfactionDataType } from "@src/utils/constants";
 import React from "react";
 import { LineChart, Line, ResponsiveContainer, Legend } from "recharts";
 
-const data = [
-  { name: "Jan", lastMonth: 30, thisMonth: 50 },
-  { name: "Feb", lastMonth: 50, thisMonth: 60 },
-  { name: "Mar", lastMonth: 40, thisMonth: 55 },
-  { name: "Apr", lastMonth: 60, thisMonth: 70 },
-  { name: "May", lastMonth: 50, thisMonth: 65 },
-  { name: "Jun", lastMonth: 70, thisMonth: 90 },
-];
-
-export const LineChartCard = () => {
+export const LineChartCard = ({
+  data,
+}: {
+  data: CustomerSatisfactionDataType[];
+}) => {
+  const { theme } = useTheme();
   return (
-    <div className="shadow-sm rounded-2xl p-5 bg-white lg:col-span-2">
+    <div
+      className={`shadow-sm rounded-2xl p-5 lg:col-span-2  ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
+    >
       <h1 className="font-bold mb-3">Customer Satisfaction</h1>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={data}>

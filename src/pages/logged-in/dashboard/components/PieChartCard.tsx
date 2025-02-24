@@ -2,6 +2,7 @@ import React from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { ProductDataType } from "@src/utils/constants";
 import { InboxStackIcon } from "@heroicons/react/24/outline";
+import { useTheme } from "@src/hooks";
 
 export const PieChartCard = ({
   data,
@@ -10,8 +11,11 @@ export const PieChartCard = ({
   data: ProductDataType[];
   title: string;
 }) => {
+  const { theme } = useTheme();
   return (
-    <div className="shadow-sm rounded-2xl p-5 bg-white lg:col-span-3">
+    <div
+      className={`shadow-sm rounded-2xl p-5 lg:col-span-3 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
+    >
       <h1 className="font-bold mb-3">{title}</h1>
       <div className="flex items-center relative">
         <ResponsiveContainer width="60%" height={200}>

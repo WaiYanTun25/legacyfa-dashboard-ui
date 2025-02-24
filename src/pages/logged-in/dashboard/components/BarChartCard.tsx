@@ -8,9 +8,13 @@ import {
 } from "recharts";
 
 import { WeeklySalesDataType } from "@pages/logged-in/dashboard/dashboard.types";
+import { useTheme } from "@src/hooks";
 export const BarChartCard = ({ data }: { data: WeeklySalesDataType[] }) => {
+  const { theme } = useTheme();
   return (
-    <div className="shadow-sm rounded-2xl p-5 lg:col-span-2 bg-white">
+    <div
+      className={`shadow-sm rounded-2xl p-5 lg:col-span-2 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
+    >
       <h1 className="font-bold mb-3">Weekly Sales</h1>
       <ResponsiveContainer width="100%" height={200}>
         <BarChart

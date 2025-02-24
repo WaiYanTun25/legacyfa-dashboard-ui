@@ -19,6 +19,12 @@ export interface OrderDataType {
   img: string;
 }
 
+export interface CustomerSatisfactionDataType {
+  name: string;
+  lastMonth: number;
+  thisMonth: number;
+}
+
 export const COUNTRY_LIST: Country[] = [
   {
     name: "Myanmar",
@@ -125,4 +131,13 @@ export const Order_Data: OrderDataType[] = [
     price: "₹ 24,432",
     img: "https://randomuser.me/api/portraits/men/50.jpg",
   },
+];
+
+export const Customer_Satisfaction_Data = [
+  { name: "Jan", lastMonth: 30, thisMonth: 50 },
+  { name: "Feb", lastMonth: 50, thisMonth: 60 },
+  { name: "Mar", lastMonth: 40, thisMonth: 55 },
+  { name: "Apr", lastMonth: 60, thisMonth: 70 },
+  { name: "May", lastMonth: 50, thisMonth: 65 },
+  { name: "Jun", lastMonth: 70, thisMonth: 90 },
 ];
