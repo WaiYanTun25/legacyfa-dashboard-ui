@@ -5,13 +5,10 @@ import { useGetDashboardDataQuery } from "@src/services/api/dashboardApi";
 export const Dashboard = () => {
   const { data, isLoading } = useGetDashboardDataQuery({});
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
   return (
     <>
-      <SalesSection data={data?.data} />
-      <GraphSection data={data?.data} />
+      <SalesSection data={data?.data} isLoading={isLoading} />
+      <GraphSection data={data?.data} isLoading={isLoading} />
     </>
   );
 };

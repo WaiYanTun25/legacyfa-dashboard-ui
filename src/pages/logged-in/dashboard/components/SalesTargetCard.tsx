@@ -1,18 +1,31 @@
 import { useTheme } from "@src/hooks";
 import { PieChart, Pie, Cell } from "recharts";
 import { SalesTargetDataType } from "@src/utils/constants";
+import { LoadingSkeleton } from "@src/components/ui/loading-skeleton/LoadingSkeleton";
 
 const COLORS = ["#35E0A1", "#E5F6EF"];
 
 export const SalesTargetCard = ({
   data,
   title,
+  isLoading,
 }: {
   data: SalesTargetDataType[];
   title: string;
+  isLoading: boolean;
 }) => {
   const { theme } = useTheme();
-  return (
+  return isLoading ? (
+    <LoadingSkeleton
+      colSpan="lg:col-span-1"
+      responsiveHeights={{
+        base: "230px",
+        sm: "230px",
+        md: "230px",
+        lg: "280px",
+      }}
+    />
+  ) : (
     <div
       className={`shadow-md rounded-2xl flex flex-col items-center p-4 lg:col-span-1 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
     >

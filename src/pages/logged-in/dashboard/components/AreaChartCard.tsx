@@ -1,6 +1,7 @@
 import { Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts";
 import { AreaDataType } from "@pages/logged-in/dashboard/dashboard.types";
 import { useTheme } from "@src/hooks";
+import { LoadingSkeleton } from "@src/components/ui/loading-skeleton/LoadingSkeleton";
 
 export const AreaChartCard = ({
   data,
@@ -8,15 +9,27 @@ export const AreaChartCard = ({
   total,
   percentage,
   areaColor,
+  isLoading,
 }: {
   data: AreaDataType[];
   label: string;
   total: string;
   percentage: string;
   areaColor: string;
+  isLoading: boolean;
 }) => {
   const { theme } = useTheme();
-  return (
+  return isLoading ? (
+    <LoadingSkeleton
+      colSpan="lg:col-span-1"
+      responsiveHeights={{
+        base: "230px",
+        sm: "230px",
+        md: "230px",
+        lg: "280px",
+      }}
+    />
+  ) : (
     <div
       className={`shadow-sm rounded-2xl p-5 lg:col-span-1 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
     >

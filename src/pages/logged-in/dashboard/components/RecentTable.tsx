@@ -3,18 +3,31 @@ import {
   CheckCircleIcon,
   XCircleIcon,
 } from "@heroicons/react/24/outline";
+import { LoadingSkeleton } from "@src/components/ui/loading-skeleton/LoadingSkeleton";
 import { useTheme } from "@src/hooks";
 import { OrderDataType } from "@src/utils/constants";
 
 export const RecentTable = ({
   data,
   title,
+  isLoading,
 }: {
   data: OrderDataType[];
   title: string;
+  isLoading: boolean;
 }) => {
   const { theme } = useTheme();
-  return (
+  return isLoading ? (
+    <LoadingSkeleton
+      colSpan="lg:col-span-4"
+      responsiveHeights={{
+        base: "230px",
+        sm: "230px",
+        md: "230px",
+        lg: "280px",
+      }}
+    />
+  ) : (
     <div
       className={`shadow-sm rounded-2xl p-5 lg:col-span-4 ${theme === "dark" ? "text-white bg-black" : "text-black bg-white"}`}
     >
