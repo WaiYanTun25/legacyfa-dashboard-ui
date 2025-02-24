@@ -19,14 +19,14 @@ export const LanguageSelector = () => {
     <div className="relative lg:w-40 md:w-10">
       <button
         onClick={() => setIsDropdownOpen((prev) => !prev)}
-        className="flex items-center gap-2 p-1 border rounded-lg w-full"
+        className="flex items-center gap-2 p-1 border rounded-lg w-full border-primary"
       >
         <span className="text-xl">{selectedCountry.flag}</span>
         <span className="text-sm hidden lg:block">{selectedCountry.name}</span>
         {isDropdownOpen ? (
-          <ChevronUpIcon className="h-5 w-5 ml-auto" />
+          <ChevronUpIcon className="h-5 w-5 ml-auto text-primary" />
         ) : (
-          <ChevronDownIcon className="h-5 w-5 ml-auto" />
+          <ChevronDownIcon className="h-5 w-5 ml-auto text-primary" />
         )}
       </button>
 

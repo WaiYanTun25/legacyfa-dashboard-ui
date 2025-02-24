@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTheme } from "@src/hooks/useTheme";
 import {
   MagnifyingGlassIcon,
@@ -18,6 +18,22 @@ export const TopNavbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { userData } = useAuth();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !(dropdownRef.current as HTMLElement).contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav
@@ -50,7 +66,6 @@ export const TopNavbar = () => {
             `}
             >
               <MagnifyingGlassIcon className="absolute left-3 h-5 w-5 text-gray-400" />
-              {}
               <input
                 type="text"
                 placeholder="Search here..."
@@ -71,19 +86,11 @@ export const TopNavbar = () => {
             </button>
           )}
 
-          <button onClick={toggleTheme} className="hidden lg:block">
-            {theme === "dark" ? (
-              <SunIcon className="h-6 w-6" />
-            ) : (
-              <MoonIcon className="h-6 w-6" />
-            )}
-            <span className="sr-only">Toggle theme</span>
-          </button>
-
-          <button className="relative p-2 bg-[#EBEEFC] rounded-lg">
+          <button className="relative p-2 bg-[#EBEEFC] rounded-lg hidden lg:block">
             <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-[#43A9FB]" />
           </button>
-          <button className="relative p-2 bg-[#EBF5EC] rounded-lg">
+
+          <button className="relative p-2 bg-[#EBF5EC] rounded-lg hidden lg:block">
             <BellIcon className="h-6 w-6 text-primary" />
             <span className="absolute top-[10px] right-[10px] h-2 w-2 bg-red-500 rounded-full" />
           </button>
@@ -91,19 +98,50 @@ export const TopNavbar = () => {
           <div className="lg:flex items-center gap-2">
             <LanguageSelector />
           </div>
+          <div className="relative" ref={dropdownRef}>
+            <button
+              className="flex items-center gap-2"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <img
+                src={assets.images.profileImage}
+                alt={userData?.email}
+                className="h-8 w-8 rounded-full object-cover"
+              />
+              <ChevronDownIcon className="h-4 w-4" />
+            </button>
 
-          <button className="flex items-center gap-2">
-            <img
-              src={assets.images.profileImage}
-              alt={userData?.email}
-              className="h-8 w-8 rounded-full object-cover"
-            />
-            <ChevronDownIcon className="h-4 w-4" />
-          </button>
+            {isDropdownOpen && (
+              <div
+                className={`absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-lg z-50 p-2`}
+              >
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                >
+                  {theme === "dark" ? (
+                    <SunIcon className="h-5 w-5 text-yellow-500" />
+                  ) : (
+                    <MoonIcon className="h-5 w-5 text-gray-700" />
+                  )}
+                  {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                </button>
+                <button className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                  <BellIcon className="h-5 w-5 text-primary" />
+                  Notifications
+                </button>
+                <button className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                  <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-[#43A9FB]" />
+                  Chat
+                </button>
+                <button className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-
-      {}
     </nav>
   );
 };
