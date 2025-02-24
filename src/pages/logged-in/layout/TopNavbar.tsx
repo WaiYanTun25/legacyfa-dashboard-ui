@@ -65,7 +65,7 @@ export const TopNavbar = ({
             </div>
             <div
               className={`
-              relative flex items-center w-full ml-6
+              relative flex items-center w-full ml-6 mr-2
             `}
             >
               <MagnifyingGlassIcon className="absolute left-3 h-5 w-5 text-gray-400" />
@@ -83,23 +83,6 @@ export const TopNavbar = ({
         </div>
 
         <div className="flex items-center gap-4 lg:w-2/4 md:w-1/4 justify-end">
-          <div
-            className={`
-              relative flex items-center w-full ml-6 lg:hidden
-            `}
-          >
-            <MagnifyingGlassIcon className="absolute left-3 h-5 w-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search here..."
-              className={`
-                  w-full pl-10 pr-12 py-2 rounded-xl outline-none border-primary border
-                  ${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-900"}
-                `}
-            />
-            <MicrophoneIcon className="absolute right-3 h-5 w-5 text-gray-400" />
-          </div>
-
           <button className="relative p-2 bg-[#EBEEFC] rounded-lg hidden lg:block">
             <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-[#43A9FB]" />
           </button>
